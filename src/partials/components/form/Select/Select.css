@@ -1,0 +1,10 @@
+.select-field {
+  font-family: var(--font-standard);
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--form-input-border-color);
+  background-color: var(--form-input-background-color);
+  color: var(--form-input-text-color);
+}

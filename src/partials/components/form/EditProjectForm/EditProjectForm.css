@@ -1,0 +1,14 @@
+.upload-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upload-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--form-input-placeholder-color);
+  border-radius: 30px;
+  width: 100px;
+  height: 100px;
+}

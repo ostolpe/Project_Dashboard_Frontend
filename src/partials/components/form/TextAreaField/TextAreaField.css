@@ -1,0 +1,16 @@
+.text-area-field {
+  font-family: var(--font-standard);
+  width: 100%;
+  min-width: 100%;
+  max-height: 350px;
+  min-height: 195px;
+  font-size: 1em;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--form-input-border-color);
+  transition: border-color 0.1s ease-in-out;
+  outline: none;
+  resize: none;
+  background-color: var(--form-input-background-color);
+  color: var(--form-input-text-color);
+}

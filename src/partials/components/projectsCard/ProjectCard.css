@@ -1,0 +1,31 @@
+.card-container {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 20px 20px;
+  aspect-ratio: 4/3;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-title {
+  margin-right: auto;
+  > p {
+    margin: 0;
+    color: var(--text-muted-color);
+  }
+}
+
+.projects-card-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.projects-card-dropdown > button {
+  justify-content: flex-start;
+}
