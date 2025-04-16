@@ -26,10 +26,11 @@ const ProjectsCard = ({
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`https://localhost:7025/api/projects/${id}`, {
+      const res = await fetch(`https://localhost:7171/api/projects/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
         },
       });
 
@@ -48,7 +49,7 @@ const ProjectsCard = ({
       <div className="card-header">
         <img src={ProjectLogo} alt="" />
         <div className="card-title">
-          <h6>{project.projectName}</h6>
+          <h6>{project.name}</h6>
           <p>{project.client.name}</p>
         </div>
         <Dropdown
@@ -68,7 +69,10 @@ const ProjectsCard = ({
             >
               <ClientProvider>
                 <UserProvider>
-                  <EditProjectForm project={project} setShowModal={setShowModal} />
+                  <EditProjectForm
+                    project={project}
+                    setShowModal={setShowModal}
+                  />
                 </UserProvider>
               </ClientProvider>
             </Modal>

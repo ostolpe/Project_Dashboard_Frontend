@@ -51,10 +51,11 @@ const EditProjectForm = ({ project, setShowModal }) => {
     console.log("Payload:", payload);
 
     try {
-      const res = await fetch("https://localhost:7025/api/projects", {
+      const res = await fetch("https://localhost:7171/api/projects", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
         },
         body: JSON.stringify(payload),
       });
@@ -81,9 +82,9 @@ const EditProjectForm = ({ project, setShowModal }) => {
       </div>
       <InputField
         type="text"
-        value={project.projectName}
+        value={project.name}
         label={"Project Name"}
-        name="projectName"
+        name="name"
       />
 
       <Select

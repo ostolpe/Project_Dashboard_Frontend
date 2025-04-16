@@ -3,12 +3,18 @@ import React, { useState, createContext, useEffect } from "react";
 export const ProjectContext = createContext();
 
 export function ProjectProvider({ children }) {
-  const apiEndpoint = "https://localhost:7025/api/projects";
+  const apiEndpoint = "https://localhost:7171/api/projects";
   const [projects, setProjects] = useState([]);
 
   const fetchProjects = async () => {
     try {
-      const res = await fetch(apiEndpoint);
+      const res = await fetch(apiEndpoint, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
+        },
+      });
       if (res.ok) {
         const data = await res.json();
         setProjects(data);

@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const apiEndpoint = "https://localhost:7025/api/auth";
+  const apiEndpoint = "https://localhost:7171/api/auth";
   const defaultValues = {
     accessToken: null,
     role: "admin",
@@ -17,10 +17,16 @@ export const AuthProvider = ({ children }) => {
     setAuth({ ...defaultValues, loading: false });
 
     try {
-      const res = await fetch(apiEndpoint);
+      const res = await fetch(apiEndpoint, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
+        },
+      });
 
       if (res.ok) {
-        const data = await response.json();
+        const data = await res.json();
         setAuth({
           accessToken: data.accessToken,
           role: data.role,

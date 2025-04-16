@@ -10,7 +10,7 @@ import Select from "../Select/Select";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const AddProjectForm = ({}) => {
+const AddProjectForm = ({ setShowModal }) => {
   const { clients } = useContext(ClientContext);
   const { users } = useContext(UserContext);
   const { fetchProjects } = useContext(ProjectContext);
@@ -30,10 +30,11 @@ const AddProjectForm = ({}) => {
     console.log("Payload:", payload);
 
     try {
-      const res = await fetch("https://localhost:7025/api/projects", {
+      const res = await fetch("https://localhost:7171/api/projects", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
         },
         body: JSON.stringify(payload),
       });
@@ -42,7 +43,10 @@ const AddProjectForm = ({}) => {
         throw new Error(`Server responded with status ${res.status}`);
       }
 
-      if (res.ok) fetchProjects();
+      if (res.ok) {
+        fetchProjects();
+        setShowModal(false);
+      }
     } catch (err) {
       console.error("Request failed", err);
     }
@@ -60,7 +64,7 @@ const AddProjectForm = ({}) => {
         type="text"
         placeholder="Enter Project Name"
         label={"Project Name"}
-        name="projectName"
+        name="name"
       />
 
       <Select name="clientId" options={clients} />

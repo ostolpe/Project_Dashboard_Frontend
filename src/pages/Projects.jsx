@@ -30,7 +30,7 @@ const Projects = () => {
             >
               <ClientProvider>
                 <UserProvider>
-                  <AddProjectForm />
+                  <AddProjectForm setShowModal={setShowModal} />
                 </UserProvider>
               </ClientProvider>
             </Modal>

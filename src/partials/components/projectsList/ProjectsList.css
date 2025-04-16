@@ -27,21 +27,42 @@
 .projects-list-container {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
 }
-@media (width <=1440px) {
-  .projects-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (width <=1200px) {
-  .projects-list {
+
+@media (width > 56.25rem) {
+  .projects-list-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (width <=900px) {
-  .projects-list {
-    grid-template-columns: repeat(1, 1fr);
+
+@media (width > 75rem) {
+  .projects-list-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width > 90rem) {
+  .projects-list-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (width > 120rem) {
+  .projects-list-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (width > 170rem) {
+  .projects-list-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (width > 240rem) {
+  .projects-list-container {
+    grid-template-columns: repeat(12, 1fr);
   }
 }
