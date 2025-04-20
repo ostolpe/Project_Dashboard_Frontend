@@ -25,13 +25,16 @@ const ProjectsCard = ({
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`https://localhost:7171/api/projects/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
-        },
-      });
+      const res = await fetch(
+        `https://alpha-portal-oliver-fgd6c2abcfg6c8gg.swedencentral-01.azurewebsites.net/api/projects/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
+          },
+        }
+      );
 
       if (!res.ok) {
         throw new Error(`Server responded with status ${res.status}`);

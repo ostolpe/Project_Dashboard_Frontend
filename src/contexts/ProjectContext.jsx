@@ -3,7 +3,8 @@ import React, { useState, createContext, useEffect } from "react";
 export const ProjectContext = createContext();
 
 export function ProjectProvider({ children }) {
-  const apiEndpoint = "https://localhost:7171/api/projects";
+  const apiEndpoint =
+    "https://alpha-portal-oliver-fgd6c2abcfg6c8gg.swedencentral-01.azurewebsites.net/api/projects";
   const [projects, setProjects] = useState([]);
 
   const fetchProjects = async () => {

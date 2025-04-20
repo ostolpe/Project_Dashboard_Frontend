@@ -3,7 +3,10 @@ import React, { useState, createContext, useEffect } from "react";
 export const ClientContext = createContext();
 
 export function ClientProvider({ children }) {
-  const apiEndpoint = "https://localhost:7171/api/Clients";
+  const apiEndpoint =
+    "https://alpha-portal-oliver-fgd6c2abcfg6c8gg.swedencentral-01.azurewebsites.net/api/Clients";
+  // const apiEndpoint =
+  //   "https://alpha-portal-webbapp.azurewebsites.net/projects/clients";
   const [clients, setClients] = useState([]);
 
   const fetchClients = async () => {

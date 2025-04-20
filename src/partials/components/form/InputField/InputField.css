@@ -19,8 +19,8 @@
   gap: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .input-field[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
   }
-}
+} */

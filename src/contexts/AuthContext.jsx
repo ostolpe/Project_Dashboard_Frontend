@@ -4,10 +4,11 @@ export const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const apiEndpoint = "https://localhost:7171/api/auth";
+  const apiEndpoint =
+    "https://alpha-portal-oliver-fgd6c2abcfg6c8gg.swedencentral-01.azurewebsites.net/api/auth";
   const defaultValues = {
     accessToken: null,
-    role: "admin",
+    role: "Admin",
     isAuthenticated: true,
     loading: false,
   };

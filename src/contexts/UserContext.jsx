@@ -3,7 +3,8 @@ import React, { useState, createContext, useEffect } from "react";
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const apiEndpoint = "https://localhost:7171/api/Users";
+  const apiEndpoint =
+    "https://alpha-portal-oliver-fgd6c2abcfg6c8gg.swedencentral-01.azurewebsites.net/api/Users";
   const [users, setUsers] = useState([]);
 
   const fetchUsers = async () => {

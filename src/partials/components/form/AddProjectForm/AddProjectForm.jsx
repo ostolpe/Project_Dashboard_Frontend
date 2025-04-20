@@ -34,14 +34,17 @@ const AddProjectForm = ({ setShowModal }) => {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch("https://localhost:7171/api/projects", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
-        },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        "https://alpha-portal-oliver-fgd6c2abcfg6c8gg.swedencentral-01.azurewebsites.net/api/projects",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "Y2U5NDBlOTctMjJmYy00MGJmLWE3MDEtYTE1ZGIzOGE1Yjk5",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (!res.ok) {
         throw new Error(`Server responded with status ${res.status}`);
