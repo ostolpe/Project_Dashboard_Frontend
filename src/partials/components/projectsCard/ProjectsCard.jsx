@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { ClientProvider, UserProvider } from "../../../contexts";
 import ProjectLogo from "../../../assets/images/project-logo.svg";
 import Modal from "../modal/Modal";
 import Dropdown from "../dropdown/dropdown";
@@ -38,7 +37,7 @@ const ProjectsCard = ({
         throw new Error(`Server responded with status ${res.status}`);
       }
 
-      onDelete?.(); // null check if function doesn't exist
+      onDelete?.();
     } catch (err) {
       console.error("Request failed", err);
     }
@@ -67,14 +66,7 @@ const ProjectsCard = ({
               open={showModal}
               setShowModal={setShowModal}
             >
-              <ClientProvider>
-                <UserProvider>
-                  <EditProjectForm
-                    project={project}
-                    setShowModal={setShowModal}
-                  />
-                </UserProvider>
-              </ClientProvider>
+              <EditProjectForm project={project} setShowModal={setShowModal} />
             </Modal>
 
             <Modal
@@ -105,7 +97,6 @@ const ProjectsCard = ({
         </Dropdown>
       </div>
       <p>{project.description}</p>
-      <p>{project.status.name}</p>
     </div>
   );
 };

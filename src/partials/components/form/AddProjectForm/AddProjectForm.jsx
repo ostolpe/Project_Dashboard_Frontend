@@ -24,10 +24,14 @@ const AddProjectForm = ({ setShowModal }) => {
     e.preventDefault();
 
     const form = e.target;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
-
-    console.log("Payload:", payload);
 
     try {
       const res = await fetch("https://localhost:7171/api/projects", {
@@ -65,24 +69,37 @@ const AddProjectForm = ({ setShowModal }) => {
         placeholder="Enter Project Name"
         label={"Project Name"}
         name="name"
+        required
       />
 
-      <Select name="clientId" options={clients} />
+      <Select name="clientId" options={clients} required />
 
       <TextAreaField
         label="Description"
         placeholder="Type Something"
         name="description"
+        required
       />
 
       <div className="date-input-wrapper">
-        <InputField type="date" label={"Start Date"} name="startDate" />
-        <InputField type="date" label={"End Date"} name="endDate" />
+        <InputField
+          type="date"
+          label={"Start Date"}
+          name="startDate"
+          required
+        />
+        <InputField type="date" label={"End Date"} name="endDate" required />
       </div>
 
-      <Select name="userId" options={formattedUsers} />
+      <Select name="userId" options={formattedUsers} required />
 
-      <InputField type="text" label={"Budget"} placeholder="0" name="budget" />
+      <InputField
+        type="text"
+        label={"Budget"}
+        placeholder="0"
+        name="budget"
+        required
+      />
       <button type="submit" className="btn save-btn">
         Add
       </button>

@@ -18,7 +18,6 @@ export function ProjectProvider({ children }) {
       if (res.ok) {
         const data = await res.json();
         setProjects(data);
-        console.log("Projects fetched successfully:", data);
       } else {
         console.error("Failed to fetch projects");
       }

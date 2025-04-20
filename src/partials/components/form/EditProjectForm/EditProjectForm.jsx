@@ -45,10 +45,14 @@ const EditProjectForm = ({ project, setShowModal }) => {
     e.preventDefault();
 
     const form = e.target;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
-
-    console.log("Payload:", payload);
 
     try {
       const res = await fetch("https://localhost:7171/api/projects", {
@@ -85,6 +89,7 @@ const EditProjectForm = ({ project, setShowModal }) => {
         value={project.name}
         label={"Project Name"}
         name="name"
+        required
       />
 
       <Select
@@ -93,11 +98,13 @@ const EditProjectForm = ({ project, setShowModal }) => {
         value={selectedValues.clientId}
         options={clients}
         setSelectedValues={setSelectedValues}
+        required
       />
       <TextAreaField
         name="description"
         value={project.description}
         label="Description"
+        required
       />
       <div className="date-input-wrapper">
         <InputField
@@ -105,12 +112,14 @@ const EditProjectForm = ({ project, setShowModal }) => {
           type="date"
           value={formattedStartDate}
           label="Start Date"
+          required
         />
         <InputField
           name="endDate"
           type="date"
           value={formattedEndDate}
           label={"End Date"}
+          required
         />
       </div>
 
@@ -120,6 +129,7 @@ const EditProjectForm = ({ project, setShowModal }) => {
         value={selectedValues.userId}
         options={formattedUsers}
         setSelectedValues={setSelectedValues}
+        required
       />
 
       <InputField
@@ -127,6 +137,7 @@ const EditProjectForm = ({ project, setShowModal }) => {
         type="text"
         value={project.budget}
         label={"Budget"}
+        required
       />
 
       <Select
@@ -135,6 +146,7 @@ const EditProjectForm = ({ project, setShowModal }) => {
         value={selectedValues.statusId}
         options={status}
         setSelectedValues={setSelectedValues}
+        required
       />
 
       <InputField name="id" type="hidden" value={project.id} />

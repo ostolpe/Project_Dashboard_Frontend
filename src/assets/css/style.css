@@ -115,7 +115,7 @@
   --z-index-modal: 10000;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --font-standard: "Nunito", sans-serif;
     --font-logo: "Comfortaa", sans-serif;
@@ -223,7 +223,7 @@
     --z-index-dropdown: 100;
     --z-index-modal: 10000;
   }
-}
+} */
 
 /* structure */
 
